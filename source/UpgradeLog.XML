@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="saga">
+</Property><Property Name="Solution File" Value="C:\zi.dev\git\NServiceBusSagas101\source\saga.sln">
+</Property><Property Name="User Options File" Value="C:\zi.dev\git\NServiceBusSagas101\source\saga.suo">
+</Property><Property Name="Date" Value="08 June 2010">
+</Property><Property Name="Time" Value="20:59">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="saga.sln" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\saga.sln">
+</Event><Event ErrorLevel="0" Project="" Source="saga.suo" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\saga.suo">
+</Event><Event ErrorLevel="0" Project="Messages" Source="Messages\Messages.csproj" Description="Project file successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\Messages\Messages.csproj">
+</Event><Event ErrorLevel="0" Project="Messages" Source="Messages\FinancalTransactionMessage.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\Messages\FinancalTransactionMessage.cs">
+</Event><Event ErrorLevel="0" Project="Messages" Source="Messages\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\Messages\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Messages" Source="Messages\Messages.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Messages" Source="Messages\Messages.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\FakeMessagePublisher.csproj" Description="Project file successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\FakeMessagePublisher.csproj">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\FakeMessagePublisher.csproj.user" Description="Project user file successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\FakeMessagePublisher.csproj.user">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\WantToRunAtStartup.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\WantToRunAtStartup.cs">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\EndpointConfig.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\EndpointConfig.cs">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\App.config" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\App.config">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\NServiceBus.Host.exe.config" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\FakeMessagePublisher\NServiceBus.Host.exe.config">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\FakeMessagePublisher.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FakeMessagePublisher" Source="FakeMessagePublisher\FakeMessagePublisher.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\LES.csproj" Description="Project file successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\LES.csproj">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\LES.csproj.user" Description="Project user file successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\LES.csproj.user">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\ConfigureEndpoint.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\ConfigureEndpoint.cs">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\FinancalTransactionMessageHandler.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\FinancalTransactionMessageHandler.cs">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\FinancialTransactionSaga\FinancialTransactionSaga.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\FinancialTransactionSaga\FinancialTransactionSaga.cs">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\App.config" Description="File successfully backed up as C:\zi.dev\git\NServiceBusSagas101\source\Backup\LES\App.config">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\LES.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LES" Source="LES\LES.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="saga.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="saga.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Messages" Source="Messages\Messages.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="FakeMessagePublisher" Source="FakeMessagePublisher\FakeMessagePublisher.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="LES" Source="LES\LES.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
