@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LES.DataAccess;
 using Messages;
 using NServiceBus;
 using NServiceBus.Saga;
@@ -12,9 +13,12 @@ namespace LES.FinancialTransactionSaga
         IHandleMessages<CheckUnderWriterAgainMessage>,
         IHandleMessages<CheckBrokerAgainMessage>
     {
+        private string checkBrokerAgainMessageState = "checkBrokerAgainMessage";
+        private string checkUnderWriterAgainMessageState = "checkUnderWriterAgainMessage";
+
         public override void ConfigureHowToFindSaga()
         {
-            WriteOut(new List<string> { "ConfigureHowToFindSaga" });
+            Console.WriteLine(new List<string> { "ConfigureHowToFindSaga" });
             ConfigureMapping<FinancalTransactionMessage>(saga => saga.SagaId, message => message.SagaId);
             ConfigureMapping<CheckUnderWriterAgainMessage>(saga => saga.SagaId, message => message.SagaId);
             ConfigureMapping<CheckBrokerAgainMessage>(saga => saga.SagaId, message => message.SagaId);
@@ -22,29 +26,46 @@ namespace LES.FinancialTransactionSaga
 
         public void Handle(FinancalTransactionMessage message)
         {
-            WriteOut(new List<string>{"In Saga","Handle(FinancalTransactionMessage message)"});
+            Console.WriteLine(new List<string> { "In Saga", "Handle(FinancalTransactionMessage message)" });
 
             Data.SagaId = message.SagaId;
             Data.SagaStartTime = message.SagaStartTime;
-            Data.BrokerExists = CheckBrokerExisters();
-            Data.UnderwriterExists = CheckUnderwriterExisters();
+            Data.BrokerExists = EntityChecker.BrokerExists();
+            Data.UnderwriterExists = EntityChecker.UnderwriterExists();
 
-            if (Data.BrokerExists && Data.UnderwriterExists){/*save out to the Excellerator table*/}
+            if (Data.BrokerExists && Data.UnderwriterExists)
+            {
+                PersistFinancialTransation();
+                CompleteSaga();
+            }
 
             if (Data.BrokerExists == false)
-                RequestTimeout(TimeSpan.FromSeconds(3), "checkBrokerAgainMessage");
+                RequestTimeout(TimeSpan.FromSeconds(3), checkBrokerAgainMessageState);
 
             if (Data.UnderwriterExists == false)
-                RequestTimeout(TimeSpan.FromSeconds(3), "checkUnderWriterAgainMessage");
+                RequestTimeout(TimeSpan.FromSeconds(3), checkUnderWriterAgainMessageState);
         }
 
-        public void Handle(CheckUnderWriterAgainMessage message){WriteOut(new List<string> { "public void Handle(CheckUnderWriterAgainMessage message)" });}
+        public void Handle(CheckUnderWriterAgainMessage message)
+        {
+            Console.WriteLine(new List<string> { "In Saga", "public void Handle(CheckUnderWriterAgainMessage message)" });
+            Data.BrokerExists = EntityChecker.BrokerExists();
+            if (Data.BrokerExists == false)
+                RequestTimeout(TimeSpan.FromSeconds(3), checkBrokerAgainMessageState);
+        
+        }
 
-        public void Handle(CheckBrokerAgainMessage message){WriteOut(new List<string> { "public void Handle(CheckBrokerAgainMessage message)" });}
+        public void Handle(CheckBrokerAgainMessage message)
+        {
+            Console.WriteLine(new List<string> { "In Saga", "public void Handle(CheckBrokerAgainMessage message)" });
+            Data.UnderwriterExists = EntityChecker.UnderwriterExists();
+            if (Data.UnderwriterExists == false)
+                RequestTimeout(TimeSpan.FromSeconds(3), checkUnderWriterAgainMessageState);
+        }
 
         public override void Timeout(object state)
         {
-            WriteOut(new List<string> { "In the timeout" });
+            Console.WriteLine(new List<string> { "In the timeout" });
 
             if (Data.UnderwriterExists == false)
             {
@@ -59,37 +80,17 @@ namespace LES.FinancialTransactionSaga
             }
         }
 
-        private bool CheckBrokerExisters()
+        private void CompleteSaga()
         {
-            WriteOut(new List<string> { "Call to CheckBrokerExisters" });
-            return true;
+            MarkAsComplete();
+            Console.WriteLine(new List<string> { "Finished!!!! :)" });
         }
 
-        private bool CheckUnderwriterExisters()
+        private static void PersistFinancialTransation()
         {
-            WriteOut(new List<string> { "Call to CheckUnderwriterExisters" });
-            return false;
+            Console.WriteLine(new List<string> { "PersistFinancialTransation" });
         }
 
-        private static void WriteOut(IEnumerable<string> messages)
-        {
-            Console.WriteLine("************************************************************************************************");
-            foreach (var currentMessage in messages)
-            {
-                Console.WriteLine(currentMessage);
-            }
-            Console.WriteLine("************************************************************************************************");
-        }
-    }
-
-    public class FinancialTransactionSagaData : ISagaEntity
-    {
-        public virtual Guid Id { get; set; }
-        public virtual string Originator { get; set; }
-        public virtual string OriginalMessageId { get; set; }
-        public virtual Guid SagaId { get; set; }
-        public virtual bool UnderwriterExists { get; set; }
-        public virtual bool BrokerExists { get; set; }
-        public virtual DateTime SagaStartTime { get; set; }
+        
     }
 }

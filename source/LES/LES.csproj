@@ -86,9 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicHandlers\BasicHandlers.cs" />
     <Compile Include="ConfigureEndpoint.cs" />
-    <Compile Include="BasicHandlers.cs" />
+    <Compile Include="DataAccess\EntityChecker.cs" />
     <Compile Include="FinancialTransactionSaga\FinancialTransactionSaga.cs" />
+    <Compile Include="FinancialTransactionSaga\FinancialTransactionSagaData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
